@@ -1,7 +1,13 @@
 public class Enemy extends Characters {
+	
+	Enemy(int floor)
+	{
+		int health = CalcHealth(floor);
+		int strength = CalcStrength(floor);
+	}
   
 	private static int CalcHealth(int floor)
-  {
+ 	{
 
 		if (floor == 1)
 			return 75;
@@ -16,8 +22,8 @@ public class Enemy extends Characters {
 		
 	}
   
-  private static int CalcStrength(int floor)
-  {
-    return (int)(Math.random()*20+25*floor);
-  }
+ 	private static int CalcStrength(int floor)
+ 	{
+  		return (int)(Math.random()*20+25*floor);
+ 	}
 }
