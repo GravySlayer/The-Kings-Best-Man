@@ -1,6 +1,6 @@
 public class Playable extends Characters {
 
-public static int attack(int strength)
+public static int attackDamage(int strength)
 {
 	int chance = (int)(100*Math.random());
 	boolean miss = (chance > 90) ? true:false;
