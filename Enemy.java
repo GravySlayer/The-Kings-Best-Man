@@ -1,9 +1,11 @@
 public class Enemy extends Characters {
 	
-	Enemy(int floor)
+	Enemy(int floor, int x, int y)
 	{
 		int health = CalcHealth(floor);
 		int strength = CalcStrength(floor);
+		this.x = x;
+		this.y = y;
 	}
   
 	private static int CalcHealth(int floor)
