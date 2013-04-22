@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class room {
-  pathTile[][] roomMetaData;
+  pathTile[][] roomPathData;
 	int dimX, dimY;
 
 	// Construter takes a filename without an extension as an argument and loads it into a pathTile[][]
@@ -13,7 +13,7 @@ public class room {
 	protected room(String filename) {
 		try {
 			BufferedImage room = (ImageIO.read(getClass().getResource("data/rooms/" + filename + ".png")));
-			roomMetaData = convertImage(room);
+			roomPathData = convertImage(room);
 			dimX = room.getWidth();
 			dimY = room.getHeight();
 		} catch (IOException e) {
@@ -22,13 +22,17 @@ public class room {
 	}
 
 	// Prints the pathTile room to the console
-	public void printMetaData(){
+	public void printPathData(){
 		for (int row = 0; row < dimY; row++) {
 			System.out.println("");
 	         for (int col = 0; col < dimX; col++) {
-	        	 System.out.print(" " + roomMetaData[row][col].shorthand);
+	        	 System.out.print(" " + roomPathData[row][col].shorthand);
 	         }
 		}
+	}
+	
+	public pathTile getPathTile(int x, int y){
+		return roomPathData[x][y];
 	}
 
 	// Converts the image into a pathTile[][]
