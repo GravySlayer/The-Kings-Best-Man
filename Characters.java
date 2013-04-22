@@ -1,4 +1,3 @@
-
 public class Playable extends Characters {
 
   public static int attack(int strength)
