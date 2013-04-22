@@ -9,6 +9,7 @@ public class room {
 	int dimX, dimY;
 
 	// Construter takes a filename without an extension as an argument and loads it into a pathTile[][]
+	// Files are place in the classpath csc122.projects.kings.data.rooms in this case
 	protected room(String filename) {
 		try {
 			BufferedImage room = (ImageIO.read(getClass().getResource("data/rooms/" + filename + ".png")));
