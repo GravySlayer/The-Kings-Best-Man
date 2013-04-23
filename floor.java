@@ -2,17 +2,22 @@ package csc122.projects.kings;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Scanner;
+
 import javax.imageio.ImageIO;
 
 public class floor {
   pathTile[][] roomPathData;
-	private int dimX, dimY;
+	private int dimX, dimY, level;
 
 	// Construter takes a filename without an extension as an argument and loads it into a pathTile[][]
 	// Files are place in the classpath csc122.projects.kings.data.rooms in this case
 	protected floor(String filename) {
+		Scanner in = new Scanner(filename);
+		level = in.nextInt();
+		in.close();
 		try {
-			BufferedImage room = (ImageIO.read(getClass().getResource("data/rooms/" + filename + ".png")));
+			BufferedImage room = (ImageIO.read(getClass().getResource("data/floors/" + filename + ".png")));
 			roomPathData = convertImage(room);
 			dimX = room.getWidth();
 			dimY = room.getHeight();
@@ -29,6 +34,11 @@ public class floor {
 	        	 System.out.print(" " + roomPathData[row][col].shorthand);
 	         }
 		}
+	}
+	
+	public int getLevel (){
+		return level;
+		
 	}
 	
 	public pathTile getPathTile(int x, int y){
