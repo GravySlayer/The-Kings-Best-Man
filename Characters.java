@@ -2,6 +2,9 @@ public class Characters {
 
 protected int x;
 protected int y;
+protected maxVitality;
+protected currentVitality;
+protected strength;
 
 public int attackDamage(int strength)
 {
@@ -9,4 +12,12 @@ public int attackDamage(int strength)
 	boolean miss = (chance > 90) ? true:false;
 	return (miss) ? 0:(int)(0.5 * Math.random() * strength + strength);		
 };
+
+public boolean isAlive()
+{
+	if (currentVitality <= 0)
+		return false;
+	else
+		return true;
+}
 }
