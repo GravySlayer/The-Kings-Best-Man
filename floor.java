@@ -12,7 +12,7 @@ public class floor {
 	// Files are place in the classpath csc122.projects.kings.data.rooms in this case
 	protected floor(String filename) {
 		try {
-			BufferedImage room = (ImageIO.read(getClass().getResource("data/rooms/" + filename + ".png")));
+			BufferedImage room = (ImageIO.read(getClass().getResource("data/floors" filename + ".png")));
 			roomPathData = convertImage(room);
 			dimX = room.getWidth();
 			dimY = room.getHeight();
