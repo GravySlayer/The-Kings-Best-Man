@@ -3,6 +3,7 @@ public class Enemy extends Characters {
 	Enemy(int floor, int x, int y)
 	{
 		maxVitality = CalcHealth(floor);
+		currentVitality = maxVitality;
 		strength = CalcStrength(floor);
 		this.x = x;
 		this.y = y;
