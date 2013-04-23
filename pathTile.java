@@ -1,15 +1,17 @@
 package csc122.projects.kings;
 
 public enum pathTile {
-  FLOOR(-1, '`' ), // (255,255,255)
+	FLOOR(-1, '`' ), // (255,255,255)
 	WALL(-16777216, 'W'), // (0,0,0)
 	STAIR_DOWN(-16711936, '_'), // (0,255,0)
 	STAIR_UP(-65536, '^'), // (255,0,0)
 	ROOM_LIMIT(-16776961, '='), // (0,0,255)
+	SPAWN(-16711681 , 'S'), // (0,255,255)
+	SPAWN_RANDOM(-32768, 'R'), // (255, 128, 0)
+	ANTIDOTE(-16744448, 'A'), // (0, 128, 0)
 	DOOR(-65281, '|'), // (255,0,255)
 	EMPTY(-256, ' '), // (255,255,0)
 	UNKNOWN(0, '?'); // (-1,-1,-1)
-	
 	
 	protected final int value;
 	protected final char shorthand;
@@ -43,10 +45,21 @@ public enum pathTile {
 		case -16776961:
 			result = ROOM_LIMIT;
 			break;
+		case -16711681:
+			result = SPAWN;
+			break;
+		case -32768:
+			result = SPAWN_RANDOM;
+			break;
+		case -16744448:
+			result = ANTIDOTE;
+			break;
 		default:
+			System.out.println("Unknown value: " + in);
 			result = UNKNOWN;
 			break;
 		}
 		return result;
 	}
 }
+
