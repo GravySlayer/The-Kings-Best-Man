@@ -1,10 +1,12 @@
+package csc122.projects.kings;
+
 public class Characters {
 
 protected int x;
 protected int y;
-protected maxVitality;
-protected currentVitality;
-protected strength;
+protected int maxVitality;
+protected int currentVitality;
+protected int strength;
 
 public int attackDamage(int strength)
 {
