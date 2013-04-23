@@ -8,37 +8,51 @@ import javax.imageio.ImageIO;
 
 public class floor {
   pathTile[][] roomPathData;
-	private int dimX, dimY, level;
+  renderTile[][] roomRenderData;
+	private int dimX, dimY;
+	int level;
 
-	// Construter takes a filename without an extension as an argument and loads it into a pathTile[][]
+	// Construter takes a floor file name without an extension as an argument and loads it into a pathTile[][] and a renderTile[][]
 	// Files are place in the classpath csc122.projects.kings.data.rooms in this case
 	protected floor(String filename) {
-		Scanner in = new Scanner(filename);
-		level = in.nextInt();
-		in.close();
+		Scanner levelReader = new Scanner(filename);
+		levelReader.useDelimiter("-");
+		level = levelReader.nextInt();
+		levelReader.close();
 		try {
-			BufferedImage room = (ImageIO.read(getClass().getResource("data/floors/" + filename + ".png")));
-			roomPathData = convertImage(room);
+			BufferedImage room = (ImageIO.read(getClass().getResource("data/floors/" + filename + "-path.png")));
 			dimX = room.getWidth();
 			dimY = room.getHeight();
+			roomPathData = convertImageToPath(room);
+			room = (ImageIO.read(getClass().getResource("data/floors/" + filename + "-render.png")));
+			roomRenderData = convertImageToRender(room);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	// Prints the pathTile room to the console
 	public void printPathData(){
 		for (int row = 0; row < dimY; row++) {
-			System.out.println("");
+			System.out.println();
 	         for (int col = 0; col < dimX; col++) {
 	        	 System.out.print(" " + roomPathData[row][col].shorthand);
 	         }
 		}
 	}
 	
+	public void printRenderData(){
+		for (int row = 0; row < dimY; row++) {
+			System.out.println();
+	         for (int col = 0; col < dimX; col++) {
+	        	 System.out.print(" " + roomRenderData[row][col].shorthand);
+	         }
+		}
+	}
+	
 	public int getLevel (){
-		return level;
-		
+		return level;		
 	}
 	
 	public pathTile getPathTile(int x, int y){
@@ -52,13 +66,26 @@ public class floor {
 	}
 
 	// Converts the image into a pathTile[][]
-	private static pathTile[][] convertImage(BufferedImage image) {
+	private static pathTile[][] convertImageToPath(BufferedImage image) {
 		int width = image.getWidth();
 		int height = image.getHeight();
 		pathTile[][] result = new pathTile[height][width];
 		for (int row = 0; row < height; row++) {
 			for (int col = 0; col < width; col++) {
 				result[row][col] = pathTile.toPathTile(image.getRGB(col, row));
+			}
+		}
+		
+		return result;
+	}
+	
+	private static renderTile[][] convertImageToRender(BufferedImage image) {
+		int width = image.getWidth();
+		int height = image.getHeight();
+		renderTile[][] result = new renderTile[height][width];
+		for (int row = 0; row < height; row++) {
+			for (int col = 0; col < width; col++) {
+				result[row][col] = renderTile.toRenderTile(image.getRGB(col, row));
 			}
 		}
 		
