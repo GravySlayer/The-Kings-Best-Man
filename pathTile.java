@@ -5,7 +5,7 @@ public enum pathTile {
 	WALL(-16777216, 'W'), // (0,0,0)
 	STAIR_DOWN(-16711936, '_'), // (0,255,0)
 	STAIR_UP(-65536, '^'), // (255,0,0)
-	//TRAPDOOR(-16776961, 'T'), // (0,0,255)
+	ROOM_LIMIT(-16776961, '='), // (0,0,255)
 	DOOR(-65281, '|'), // (255,0,255)
 	EMPTY(-256, ' '), // (255,255,0)
 	UNKNOWN(0, '?'); // (-1,-1,-1)
@@ -40,9 +40,9 @@ public enum pathTile {
 		case -16777216:
 			result = WALL;
 			break;
-		//case -16776961:
-		//	result = TRAPDOOR;
-		//	break;
+		case -16776961:
+			result = ROOM_LIMIT;
+			break;
 		default:
 			result = UNKNOWN;
 			break;
