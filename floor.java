@@ -4,13 +4,13 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class room {
+public class floor {
   pathTile[][] roomPathData;
-	int dimX, dimY;
+	private int dimX, dimY;
 
 	// Construter takes a filename without an extension as an argument and loads it into a pathTile[][]
 	// Files are place in the classpath csc122.projects.kings.data.rooms in this case
-	protected room(String filename) {
+	protected floor(String filename) {
 		try {
 			BufferedImage room = (ImageIO.read(getClass().getResource("data/rooms/" + filename + ".png")));
 			roomPathData = convertImage(room);
@@ -33,6 +33,12 @@ public class room {
 	
 	public pathTile getPathTile(int x, int y){
 		return roomPathData[x][y];
+	}
+	public int getdimX(){
+		return dimX;
+	}
+	public int getdimY(){
+		return dimY;
 	}
 
 	// Converts the image into a pathTile[][]
