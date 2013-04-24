@@ -15,7 +15,7 @@ public class Key extends Core implements Keylistener
 	//init also call init from superclass
 	public void init()
 	{
-		super.init()
+		super.init();
 		Window w = s.getFullScreenWindow();
 		w.setFocusTraversalKeysEnabled(false);
 		w.addKeyListener(this);
