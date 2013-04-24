@@ -7,8 +7,8 @@ import java.util.Scanner;
 import javax.imageio.ImageIO;
 
 public class Floor {
-  pathTile[][] roomPathData;
-  renderTile[][] roomRenderData;
+  PathTile[][] roomPathData;
+  RenderTile[][] roomRenderData;
   ArrayList<Enemy> enemyList;
   private int dimX, dimY, level;
 
@@ -67,7 +67,7 @@ public class Floor {
 	}
 	
 	// Returns the pathTile at target
-	public pathTile getPathTile(int x, int y){
+	public PathTile getPathTile(int x, int y){
 		return roomPathData[x][y];
 	}
 	
@@ -82,13 +82,13 @@ public class Floor {
 	}
 
 	// Converts an image into a pathTile[][]
-	private static pathTile[][] convertImageToPath(BufferedImage image) {
+	private static PathTile[][] convertImageToPath(BufferedImage image) {
 		int width = image.getWidth();
 		int height = image.getHeight();
-		pathTile[][] result = new pathTile[height][width];
+		PathTile[][] result = new PathTile[height][width];
 		for (int row = 0; row < height; row++) {
 			for (int col = 0; col < width; col++) {
-				result[row][col] = pathTile.toPathTile(image.getRGB(col, row));
+				result[row][col] = PathTile.toPathTile(image.getRGB(col, row));
 			}
 		}
 		
@@ -96,13 +96,13 @@ public class Floor {
 	}
 	
 	// Converts an image into a renderTile[][]
-	private static renderTile[][] convertImageToRender(BufferedImage image) {
+	private static RenderTile[][] convertImageToRender(BufferedImage image) {
 		int width = image.getWidth();
 		int height = image.getHeight();
-		renderTile[][] result = new renderTile[height][width];
+		RenderTile[][] result = new RenderTile[height][width];
 		for (int row = 0; row < height; row++) {
 			for (int col = 0; col < width; col++) {
-				result[row][col] = renderTile.toRenderTile(image.getRGB(col, row));
+				result[row][col] = RenderTile.toRenderTile(image.getRGB(col, row));
 			}
 		}
 		
@@ -110,7 +110,7 @@ public class Floor {
 	}
 	
 	// Returns an ArrayList of Enemys generated from pathTile data. Use to populate floors
-	private static ArrayList<Enemy> monsterSpawn(pathTile[][] pathData, int width, int height, int level) {
+	private static ArrayList<Enemy> monsterSpawn(PathTile[][] pathData, int width, int height, int level) {
 		ArrayList<Enemy> result;
 		result = new ArrayList<Enemy>();
 		int nameCounter = 0;
