@@ -1,6 +1,6 @@
 package csc122.projects.kings;
 
-public enum pathTile {
+public enum PathTile {
 	FLOOR(-1, '`' ), // (255,255,255)
 	WALL(-16777216, 'W'), // (0,0,0)
 	STAIR_DOWN(-16711936, '_'), // (0,255,0)
@@ -16,13 +16,13 @@ public enum pathTile {
 	protected final int value;
 	protected final char shorthand;
 
-	 pathTile(int value, char shorthand){
+	 PathTile(int value, char shorthand){
 		this.value = value;
 		this.shorthand = shorthand;		
 	}
 	 // Converts the color int values into enumerated tiles
-	static pathTile toPathTile(int in){
-		pathTile result;
+	static PathTile toPathTile(int in){
+		PathTile result;
 		switch(in){
 		case -1:
 			result = FLOOR;
@@ -62,4 +62,3 @@ public enum pathTile {
 		return result;
 	}
 }
-
