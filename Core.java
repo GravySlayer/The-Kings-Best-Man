@@ -8,12 +8,12 @@ public abstract class Core
 {
   private static DisplayMode modes[] = 
 	{
-		new DisplayMode(800, 600, 32, 0);
-		new DisplayMode(800, 600, 24, 0);
-		new DisplayMode(800, 600, 16, 0);
-		new DisplayMode(640, 480, 32, 0);
-		new DisplayMode(640, 480, 24, 0);
-		new DisplayMode(640, 480, 16, 0);
+		new DisplayMode(800, 600, 32, 0),
+		new DisplayMode(800, 600, 24, 0),
+		new DisplayMode(800, 600, 16, 0),
+		new DisplayMode(640, 480, 32, 0),
+		new DisplayMode(640, 480, 24, 0),
+		new DisplayMode(640, 480, 16, 0),
 	};
 	
 	//true if game running, false if not
