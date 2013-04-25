@@ -1,7 +1,7 @@
 package csc122.projects.kings;
 
 public enum Direction {
-  NORTH,
+  	NORTH,
 	SOUTH,
 	EAST,
 	WEST;
