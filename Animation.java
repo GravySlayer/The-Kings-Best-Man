@@ -6,7 +6,7 @@ public class Animation
   private ArrayList scenes;
 	private int sceneIndex;
 	private long movieTime;
-	private long totalTimel
+	private long totalTime;
 	
 	//constructor
 	private Animation()
