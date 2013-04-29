@@ -8,6 +8,7 @@ public enum PathTile {
 	ROOM_LIMIT(-16776961, '='), // (0,0,255)
 	SPAWN(-16711681 , 'S'), // (0,255,255)
 	SPAWN_RANDOM(-32768, 'R'), // (255, 128, 0)
+	FORCED_PLAYER_SPAWN(-10223516 , 'P'), // (100 ,0 ,100)
 	ANTIDOTE(-16744448, 'A'), // (0, 128, 0)
 	DOOR(-65281, '|'), // (255,0,255)
 	EMPTY(-256, ' '), // (255,255,0)
@@ -50,6 +51,9 @@ public enum PathTile {
 			break;
 		case -32768:
 			result = SPAWN_RANDOM;
+			break;
+		case -10223516:
+			result = FORCED_PLAYER_SPAWN;
 			break;
 		case -16744448:
 			result = ANTIDOTE;
