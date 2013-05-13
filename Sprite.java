@@ -1,3 +1,5 @@
+package csc122.projects.kings;
+
 import java.awt.Image;
 import java.util.ArrayList;
 
@@ -9,13 +11,13 @@ public class Sprite
 	//velocities for x and y (how fast to move)
 	private float vx;
 	private float vy;
-	
+
 	//constructoooor
 	public Sprite(Animation a)
 	{
 		this.a = a;
 	}
-	
+
 	//change position
 	public void update(long timePassed)
 	{
@@ -23,13 +25,13 @@ public class Sprite
 		y += vy * timePassed;
 		a.update(timePassed);
 	}
-	
+
 	//get x position
 	public float getX()
 	{
 		return x;
 	}
-	
+
 	//get y position
 	public float getY()
 	{
@@ -41,31 +43,31 @@ public class Sprite
 	{
 		this.x = x;
 	}
-	
+
 	//set sprite y position
 	public void setY(float y)
 	{
 		this.y = y;
 	}
-	
+
 	//get sprite width
 	public int getWidth()
 	{
 		return a.getImage().getWidth(null);
 	}
-	
+
 	//get sprite height
 	public int getHeight()
 	{
 		return a.getImage().getHeight(null);
 	}
-	
+
 	//get horizontal velocity - speed left and right
 	public float getVelocityX()
 	{
 		return vx;
 	}
-	
+
 	//get vertical velocity - speed up and down
 	public float getVelocityY()
 	{
@@ -77,17 +79,17 @@ public class Sprite
 	{
 		this.vx = vx;
 	}
-	
+
 	//set vertical velocity
 	public void setVelocityY(float vy)
 	{
 		this.vy = vy;
 	}
-	
+
 	//get sprite image
 	public Image getImage()
 	{
 		return a.getImage();
 	}
-	
+
 }
