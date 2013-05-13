@@ -1,3 +1,5 @@
+package csc122.projects.kings;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -8,20 +10,20 @@ public class ScreenManager
 {
   //videocard = vc
 	private GraphicsDevice vc;
-	
+
 	//constructor - give vs access to monitor screen
 	public ScreenManager()
 	{
 		GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
 		vc = e.getDefaultScreenDevice();
 	}
-	
+
 	//get all compatible display modes
 	public DisplayMode[] getCompatibleDisplayMode()
 	{
 		return vc.getDisplayModes();
 	}
-	
+
 	//compares displaymodes passed into vc and see if they match
 	public DisplayMode findFirstCompatibleMode(DisplayMode modes[])
 	{
@@ -36,16 +38,16 @@ public class ScreenManager
 				}
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	//get current displaymode
 	public DisplayMode getCurrentDisplayMode()
 	{
 		return vc.getDisplayMode();
 	}
-	
+
 	//checks if two modes match
 	public boolean displayModesMatch(DisplayMode m1, DisplayMode m2)
 	{
@@ -53,20 +55,20 @@ public class ScreenManager
 		{
 			return false;
 		}
-		
+
 		if(m1.getBitDepth() != DisplayMode.BIT_DEPTH_MULTI && m2.getBitDepth() != DisplayMode.BIT_DEPTH_MULTI && m1.getBitDepth() != m2.getBitDepth())
 		{
 			return false;
 		}
-		
+
 		if(m1.getRefreshRate() != DisplayMode.REFRESH_RATE_UNKNOWN && m2.getRefreshRate() != DisplayMode.REFRESH_RATE_UNKNOWN && m1.getRefreshRate() != m2.getRefreshRate())
 		{
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	//make frame full screen
 	public void setFullScreen(DisplayMode dm)
 	{
@@ -75,7 +77,7 @@ public class ScreenManager
 		f.setIgnoreRepaint(true);
 		f.setResizable(false);
 		vc.setFullScreenWindow(f);
-		
+
 		if(dm != null && vc.isDisplayChangeSupported())
 		{
 			try
@@ -84,10 +86,10 @@ public class ScreenManager
 			}
 			catch(Exception e){}
 		}
-		
+
 		f.createBufferStrategy(2);
 	}
-	
+
 	//we will set Graphics object = to this
 	public Graphics2D getGraphics()
 	{
@@ -102,7 +104,7 @@ public class ScreenManager
 		return null;
 		}
 	}
-	
+
 	//updates display
 	public void update()
 	{
@@ -116,13 +118,13 @@ public class ScreenManager
 			}
 		}
 	}
-	
+
 	//returns full screen
 	public Window getFullScreenWindow()
 	{
 		return vc.getFullScreenWindow();
 	}
-	
+
 	//getWidth and height
 	public int getWidth()
 	{
@@ -136,7 +138,7 @@ public class ScreenManager
 			return 0;
 		}
 	}
-	
+
 	public int getHeight()
 	{
 		Window w = vc.getFullScreenWindow();
@@ -149,7 +151,7 @@ public class ScreenManager
 			return 0;
 		}
 	}
-	
+
 	//get out of full screen
 	public void restoreScreen()
 	{
@@ -160,7 +162,7 @@ public class ScreenManager
 		}
 		vc.setFullScreenWindow(null);
 	}
-	
+
 	//create image compatible with monitor
 	public BufferedImage createCompatibleImage(int w, int h, int t)
 	{
@@ -172,6 +174,6 @@ public class ScreenManager
 		}
 		return null;
 	}
-	
-	
+
+
 }
