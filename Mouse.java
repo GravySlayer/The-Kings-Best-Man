@@ -1,18 +1,27 @@
+package csc122.projects.kings;
+
 //Note: This class is relative to user interaction with the mouse.
 //As of now, if the mouse is moved or drag clicked, it'll return a string (mess), but we can change that later.
 //This is more of a base to get us started - still a work in progress
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 public class Mouse extends Core implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener
 {
-  public static void main(String[] args)
+public static void main(String[] args)
 	{
 		new Mouse().run();
 	}
-	
-	private String mes = "";
-	
+
+	private String mess = "";
+
 	//init calls super init
 	public void init()
 	{
@@ -23,7 +32,7 @@ public class Mouse extends Core implements KeyListener, MouseMotionListener, Mou
 		w.addMouseWheelListener(this);
 		w.addKeyListener(this);
 	}
-	
+
 	//draw method
 	public synchronized void draw(Graphics2D g)
 	{
@@ -33,39 +42,39 @@ public class Mouse extends Core implements KeyListener, MouseMotionListener, Mou
 		g.setColor(w.getForeground());
 		g.drawString(mess, 40, 50);
 	}
-	
+
 	//mouse listener interface
 	public void mousePressed(MouseEvent e)
 	{
 		mess = "You pressed down the mouse";
 	}
-	
+
 	public void mouseReleased(MouseEvent e)
 	{
 		mess = "You released the mouse";
 	}
-	
+
 	public void mouseClicked(MouseEvent e){}
 	public void mouseEntered(MouseEvent e){}
 	public void mouseExited(MouseEvent e){}
-	
+
 	//mouse motion interface
 	public void mouseDragged(MouseEvent e)
 	{
 		mess = "You are dragging the mouse";
 	}
-	
+
 	public void mouseMoved(MouseEvent e)
 	{
 		mess = "you are moving the mouse";
 	}
-	
+
 	//wheel interface
 	public void mouseWheelMoved(MouseWheelEvent e)
 	{
 		mess = "moving mouse wheel";
 	}
-	
+
 	//if key pressed method
 	public void keyPressed(KeyEvent e)
 	{
@@ -81,7 +90,7 @@ public class Mouse extends Core implements KeyListener, MouseMotionListener, Mou
 			e.consume();
 			//consume means no combinations (i.e. alt+tab won't work)
 		}
-		
+
 	}
 
 	//key released
@@ -91,11 +100,11 @@ public class Mouse extends Core implements KeyListener, MouseMotionListener, Mou
 		mess = "Released : " + KeyEvent.getKeyText(keyCode);
 		e.consume();
 	}
-	
+
 	//last method from interface - handles button
 	public void keyTyped(KeyEvent e)
 	{
 		e.consume();
 	}
-	
+
 }
