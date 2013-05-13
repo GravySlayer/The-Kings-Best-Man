@@ -1,3 +1,5 @@
+package csc122.projects.kings;
+
 import java.awt.*;
 import javax.swing.JFrame;
 
