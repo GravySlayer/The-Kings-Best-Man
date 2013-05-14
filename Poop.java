@@ -21,6 +21,7 @@ while (boo == true) {
 	String num = s.nextLine();
 	try{
 	if (num.equals("1")) {
+		System.out.print("Filename: ");
 		Scanner n = new Scanner(System.in);
 		String file = n.nextLine();
 		ReadFile(file);
@@ -60,7 +61,9 @@ private static void ReadFile(String file){
 
 		reader.close();
 	}
-	catch (Exception e) {}
+	catch (FileNotFoundException e) {
+		System.out.println("File not found!");
+	}
 }
 
 private static void WriteFile(String fileO){
