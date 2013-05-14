@@ -27,7 +27,6 @@ while (boo == true) {
 		ReadFile(file);
 		}
 	else if (num.equals("2")) {
-	//	String fileO;
 		System.out.print("Filename: ");
 		Scanner n = new Scanner(System.in);
 		String fileO = n.nextLine();
@@ -61,8 +60,13 @@ private static void ReadFile(String file){
 
 		reader.close();
 	}
-	catch (FileNotFoundException e) {
-		System.out.println("File not found!");
+	catch (Exception e) {
+		System.out.println("ERROR: " + file + " not found.");
+		System.out.print("Filename: ");
+                Scanner n = new Scanner(System.in);
+                file = n.nextLine();
+		ReadFile(file);
+		
 	}
 }
 
@@ -77,9 +81,9 @@ private static void WriteFile(String fileO){
 
 		while ((line = br.readLine()) != null)
 		{
-			writer.write(line + "\n");
+			writer.write(line+"\n");
 		}
-		br.close();
+		System.out.println("");
 		writer.close();
 	}
 	catch (Exception e) {}
