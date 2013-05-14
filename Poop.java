@@ -7,6 +7,11 @@ import java.io.InputStreamReader;
 public class IOFun {
 
 public static void main(String[] args){
+
+	
+boolean boo = true;
+while (boo == true) {
+
 	System.out.println("What would you like to do?");
 	System.out.println("(1) Read from a file");
 	System.out.println("(2) Write to a file");
@@ -14,8 +19,6 @@ public static void main(String[] args){
 	System.out.print("Choose: ");
 	Scanner s = new Scanner(System.in);
 	String num = s.nextLine();
-//	boolean boo = true;
-//	while (boo = true) {
 	try{
 	if (num.equals("1")) {
 		Scanner n = new Scanner(System.in);
@@ -33,18 +36,19 @@ public static void main(String[] args){
 		System.exit(0);
 	else {
 		throw new IllegalArgumentException();
-	}}
+		}
+	}
 	catch (IllegalArgumentException e) {
 		System.out.println("Invalid number: please choose 1, 2, or 3");
 	} 
 		
-//	}
+	}
 }
 
 private static void ReadFile(String file){
 	BufferedReader reader;
 	String line;
-	
+
 	try
 	{
 		reader = new BufferedReader(new FileReader(file));
