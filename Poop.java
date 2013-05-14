@@ -50,7 +50,7 @@ private static void ReadFile(String file){
 
 	try
 	{
-		reader = new BufferedReader(new FileReader(string file".txt"));
+		reader = new BufferedReader(new FileReader(String file".txt"));
 
 		while ((line = reader.readLine()) != null)
 		{
@@ -69,7 +69,7 @@ private static void WriteFile(String file){
 
 	try
 	{
-		writer = new FileWriter(string file".txt");
+		writer = new FileWriter(String file".txt");
 
 		while ((line = br.readLine()) != null)
 		{
