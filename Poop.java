@@ -63,7 +63,7 @@ private static void ReadFile(String file){
 }
 
 private static void WriteFile(String file){
-	FileWriter writer;
+	FileWriter file;
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String line;
 
@@ -82,8 +82,4 @@ private static void WriteFile(String file){
 	catch (Exception e) {}
 	
 }
-
-
-
-
 }
