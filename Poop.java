@@ -50,7 +50,7 @@ private static void ReadFile(String file){
 
 	try
 	{
-		reader = new BufferedReader(new FileReader("input.txt"));
+		reader = new BufferedReader(new FileReader(string file".txt"));
 
 		while ((line = reader.readLine()) != null)
 		{
