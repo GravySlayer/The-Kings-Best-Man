@@ -63,13 +63,13 @@ private static void ReadFile(String file){
 }
 
 private static void WriteFile(String file){
-	FileWriter file;
+	FileWriter writer;
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String line;
 
 	try
 	{
-		writer = new FileWriter("output.txt");
+		writer = new FileWriter(string file".txt");
 
 		while ((line = br.readLine()) != null)
 		{
