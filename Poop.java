@@ -45,8 +45,6 @@ private static void ReadFile(String file){
 	BufferedReader reader;
 	String line;
 	
-	System.out.println("Filename: ");
-
 	try
 	{
 		reader = new BufferedReader(new FileReader(file));
