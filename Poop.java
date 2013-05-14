@@ -7,29 +7,29 @@ import java.io.InputStreamReader;
 public class IOFun {
 
 public static void main(String[] args){
-  int num;
 	System.out.println("What would you like to do?");
 	System.out.println("(1) Read from a file");
 	System.out.println("(2) Write to a file");
 	System.out.println("(3) Quit");
 	System.out.print("Choose: ");
 	Scanner s = new Scanner(System.in);
-	num = s.nextInt();
+	String num = s.nextLine();
+//	boolean boo = true;
+//	while (boo = true) {
 	try{
-	if (num == 1) {
-		String file;
+	if (num.equals("1")) {
 		Scanner n = new Scanner(System.in);
-		file = n.nextLine();
+		String file = n.nextLine();
 		ReadFile(file);
 		}
-	else if (num == 2) {
-		String file;
+	else if (num.equals("2")) {
+	//	String fileO;
 		System.out.print("Filename: ");
 		Scanner n = new Scanner(System.in);
-		file = n.nextLine();
-		WriteFile(file);
+		String fileO = n.nextLine();
+		WriteFile(fileO);
 		}
-	else if (num == 3)
+	else if (num.equals("3"))
 		System.exit(0);
 	else {
 		throw new IllegalArgumentException();
@@ -38,8 +38,7 @@ public static void main(String[] args){
 		System.out.println("Invalid number: please choose 1, 2, or 3");
 	} 
 		
-	
-		
+//	}
 }
 
 private static void ReadFile(String file){
@@ -62,20 +61,19 @@ private static void ReadFile(String file){
 	catch (Exception e) {}
 }
 
-private static void WriteFile(String file){
+private static void WriteFile(String fileO){
 	FileWriter writer;
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	String line;
 
 	try
 	{
-		writer = new FileWriter(file);
+		writer = new FileWriter(fileO);
 
 		while ((line = br.readLine()) != null)
 		{
 			writer.write(line + "\n");
 		}
-		System.out.println("poop");
 		br.close();
 		writer.close();
 	}
